@@ -9,9 +9,9 @@ app = Flask(__name__)
 
 # Konfigurasi database
 db = mysql.connector.connect(
-    user="fprentalps", 
-    password="Deploy123", 
-    host="fprentalps.mysql.database.azure.com", 
+    user="gilangyantoson", 
+    password="TheLastKnight*123", 
+    host="final.mysql.database.azure.com", 
     port=3306, 
     database="fprentalps"
 )
