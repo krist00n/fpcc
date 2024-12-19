@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlayStation Rental</title>
+    <link rel="icon" href="/static/icon/pac.png" type="gilang/jpg">
+    <link rel="stylesheet" href="/static/css/payment.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="payment-container">
+        <h1><i class="fas fa-credit-card"></i> Proses Pembayaran</h1>
+        <form action="#" method="POST">
+            <div class="form-group">
+                <label for="rental-date">Tanggal Sewa</label>
+                <input type="date" id="rental-date" name="rental-date" required>
+            </div>
+            <div class="form-group">
+                <label for="return-date">Tanggal Kembali</label>
+                <input type="date" id="return-date" name="return-date" required>
+            </div>
+            <div class="form-group">
+                <label for="member-name">Member</label>
+                <input type="text" id="member-name" name="member-name" placeholder="Nama Member" value="{{ session['username'] }}" readonly required>
+            </div>
+            <div class="form-group">
+                <label for="device">Device</label>
+                <select id="device" name="device" required>
+                    <option value="" disabled selected>Pilih Device</option>
+                    <option value="1">PS3</option>
+                    <option value="2">PS4</option>
+                    <option value="3">PS5</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="total-amount">Total Pembayaran</label>
+                <input type="text" id="total-amount" name="total-amount" value="Rp 0" readonly>
+            </div>
+            <button type="submit"><i class="fas fa-lock"></i> Bayar Sekarang</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById('device').addEventListener('change', function() {
+            var device_id = this.value;
+            fetch('/get_device_price/' + device_id)
+                .then(response => response.json())
+                .then(data => {
+                    var rental_date = new Date(document.getElementById('rental-date').value);
+                    var return_date = new Date(document.getElementById('return-date').value);
+                    var days_rented = (return_date - rental_date) / (1000 * 60 * 60 * 24);
+                    var total_amount = days_rented * data.harga;
+                    document.getElementById('total-amount').value = "Rp " + total_amount.toLocaleString('id-ID');
+                });
+        });
+    </script>
+</body>
+</html>

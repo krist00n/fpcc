@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlayStation Rental</title>
+    <link rel="icon" href="/static/icon/pac.png" type="gilang/jpg">
+    <link rel="stylesheet" href="/static/css/home.css"> <!-- Hubungkan dengan file CSS -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+<header>
+    <div class="container">
+        <div class="logo">
+            <box-icon color="white" name='game'></box-icon> PlayStation Rental
+        </div>
+        <nav>
+            <ul class="nav-list">
+                <li class="nav-item"><a href="#hero" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#about-us" class="nav-link">Tentang Kami</a></li>
+                <li class="nav-item"><a href="#features" class="nav-link">Fitur</a></li>
+                <li class="nav-item"><a href="{{url_for('login')}}" class="nav-link">Logout</a></li>
+            </ul>
+        </nav>
+</header>
+    
+
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h1>Nikmati Serunya Bermain PlayStation di Rumah Anda!</h1>
+            <p>Menyewakan PlayStation 3, 4, dan 5 dengan harga terjangkau.</p>
+            <a href="#catalog" class="button primary">Sewa Sekarang</a>
+            <a href="#how-it-works" class="button secondary">Pelajari Lebih Lanjut</a>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Fitur Kami</h2> <!-- Judul di tengah atas container -->
+            <div class="feature-item">
+                <img src="/static/icon/game.png" alt="Controller Icon">
+                <h3>Banyak Pilihan Game</h3>
+                <p>Menyediakan berbagai pilihan game terbaru dan populer untuk Anda nikmati.</p>
+            </div>
+            <div class="feature-item">
+                <img src="/static/icon/safe.png" alt="Delivery Icon">
+                <h3>Pelayanan Cepat dan Aman</h3>
+                <p>Kami menjamin proses pelayanan PlayStation Anda dengan cepat dan aman.</p>
+            </div>
+            <div class="feature-item">
+                <img src="/static/icon/save.png" alt="Affordable Icon">
+                <h3>Harga Terjangkau</h3>
+                <p>Dapatkan tarif sewa PlayStation yang terjangkau sesuai dengan anggaran Anda.</p>
+            </div>
+            <div class="feature-item">
+                <img src="/static/icon/clock.png" alt="Customer Service Icon">
+                <h3>Layanan Pelanggan 24/7</h3>
+                <p>Kami siap membantu Anda 24 jam sehari, 7 hari seminggu melalui berbagai saluran komunikasi.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="how-it-works" id="how-it-works">
+        <div class="how-it-works-container">
+            <h2>Cara Kerja</h2>
+            <div class="steps">
+                <div class="step">
+                    <span class="step-number">1</span>
+                    <h3>Pilih PlayStation</h3>
+                    <p>Pilih Playstasion yang ingin Anda sewa.</p>
+                </div>
+                <div class="step">
+                    <span class="step-number">2</span>
+                    <h3>Set Durasi Rental</h3>
+                    <p>Tentukan durasi sewa PlayStationyang sesuai keinginan Anda.</p>
+                </div>
+                <div class="step">
+                    <span class="step-number">3</span>
+                    <h3>Lakukan Payment</h3>
+                    <p>Lakukan pembayaran dengan membawa bukti screenchot nota ke toko.</p>
+                </div>
+                <div class="step">
+                    <span class="step-number">4</span>
+                    <h3>Enjoy</h3>
+                    <p>Nikmati pengalaman bermain Playstation dirumah.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="catalog" id="catalog">
+        <div class="container">
+            <h2 class="section-title">Katalog PlayStation Kami</h2>
+            <div class="catalog-items">
+                <div class="catalog-item">
+                    <img src="/static/img/ps3.jpeg" alt="PlayStation 3">
+                    <div class="catalog-content">
+                        <h3>PlayStation 3</h3>
+                        <p>PS3 adalah konsol game dari Sony yang masih diminati banyak gamer.</p>
+                        <ul class="catalog-details">
+                            <li>TV</li>
+                            <li>Kabel HDMI</li>
+                            <li>Kabel Power</li>
+                            <li>2 DualShock 3</li>
+                            <li>5 Digital Game</li>
+                            <li>3 Bluray Game</li>
+                        </ul>
+                        <p class="rent-price">Harga Sewa: Rp 75.000/hari</p>
+                        <a href="{{url_for('payment')}}" class="button primary">Sewa Sekarang</a>
+                    </div>
+                </div>
+                <div class="catalog-item">
+                    <img src="/static/img/ps4.jpeg" alt="PlayStation 4">
+                    <div class="catalog-content">
+                        <h3>PlayStation 4</h3>
+                        <p>PS4 menawarkan pengalaman game yang lebih realistis dan canggih.</p>
+                        <ul class="catalog-details">
+                            <li>TV</li>
+                            <li>Kabel HDMI</li>
+                            <li>Kabel Power</li>
+                            <li>2 DualShock 4</li>
+                            <li>3 Digital Game</li>
+                            <li>2 Bluray Game</li>
+                        </ul>
+                        <p class="rent-price">Harga Sewa: Rp 100.000/hari</p>
+                        <a href="{{url_for('payment')}}" class="button primary">Sewa Sekarang</a>
+                    </div>
+                </div>
+                <div class="catalog-item">
+                    <img src="/static/img/ps5.jpeg" alt="PlayStation 5">
+                    <div class="catalog-content">
+                        <h3>PlayStation 5</h3>
+                        <p>PS5 adalah konsol generasi terbaru dengan teknologi mutakhir untuk game.</p>
+                        <ul class="catalog-details">
+                            <li>TV</li>
+                            <li>Kabel HDMI</li>
+                            <li>Kabel Power</li>
+                            <li>1 DualSense</li>
+                            <li>3 Digital Game</li>
+                            <li>2 Bluray Game</li>
+                        </ul>
+                        <p class="rent-price">Harga Sewa: Rp 150.000/hari</p>
+                        <a href="{{url_for('payment')}}" class="button primary">Sewa Sekarang</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+
+    <section class="about-us" id="about-us">
+        <div class="container">
+            <h2 class="section-title">Tentang Kami</h2>
+            <div class="about-content">
+                <p>Sebagai penggemar PlayStation sejati, kami berkomitmen untuk membawa pengalaman gaming terbaik langsung ke rumah Anda. Dengan koleksi PlayStation terbaru dan layanan pelanggan yang sangat responsif, kami siap memenuhi kebutuhan gaming Anda tanpa ribet.</p>
+                <p>Dengan lebih dari sepuluh tahun pengalaman dalam industri, kami telah menyediakan solusi sewa PlayStation yang handal dan terpercaya bagi ribuan pelanggan setia kami. Bergabunglah dengan kami dan nikmati keseruan bermain game dengan PlayStation favorit Anda, tanpa perlu membeli!</p>
+            </div>
+    
+            <!-- Tim Developer Section -->
+            <h2 class="section-title">Tim Developer Kami</h2>
+            <div class="team-members">
+                <div class="team-member">
+                    <img src="/static/img/gilang.jpg" alt="Member 1">
+                    <p class="name">Gilang Wahyu Pratama</p>
+                    <a class="role" href="https://www.instagram.com/gilang.w26_" target="_blank">@gilang.w26_</a>
+                    <p>22.83.0904, saya mahasiswa amikom berdomisili pingit</p>
+                </div>
+                <div class="team-member">
+                    <img src="/static/img/hisyam.jpg" alt="Member 2">
+                    <p class="name">M. Hisyam Ramadhan</p>
+                    <a class="role" href="https://www.instagram.com/mhmd.hisyam_" target="_blank">@mhmd.hisyam_</a>
+                    <p>22.83.0938 Saya mahasiswa Universitas Amikom Yogyakarta, asal saya dari Sleman Yogyakarta</p>
+                </div>
+                <div class="team-member">
+                    <img src="/static/img/krisna.jpg" alt="Member 3">
+                    <p class="name">Faesal Krisna Wijaya</p>
+                    <a class="role" href="https://www.instagram.com/krist00n_" target="_blank">@krist00n_</a>
+                    <p>22.83.0901 Saya mahasiswa Universitas Amikom Yogyakarta, asal saya dari Purworejo</p>
+                </div>
+                <div class="team-member">
+                    <img src="/static/img/vero.jpg" alt="Member 4">
+                    <p class="name">Marlinda Veronica O.N.</p>
+                    <a class="role" href="https://www.instagram.com/ocyeanic.feronif" target="_blank">@ocyeanic.feronif</a>
+                    <p>21.83.0615 Saya mahasiswa Universitas Amikom Yogyakarta</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    
+<footer class="footer">
+    <div class="container">
+        <div class="footer-top">
+            <div class="social-media">
+                <h3>Ikuti Kami</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/yourprofile" target="_blank"><box-icon name='facebook-circle' type='logo' color='#ffffff' ></box-icon></i></a>
+                    <a href="https://twitter.com/yourprofile" target="_blank"><box-icon name='twitter' type='logo' color='#ffffff' ></box-icon></i></a>
+                    <a href="https://www.instagram.com/yourfav_cosrent?igsh=b2Z2ZHFzam9yd2p0" target="_blank"><box-icon name='instagram' type='logo' color='#ffffff' ></box-icon></i></a>
+                </div>                
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 PlayStation Rental. All rights reserved. | <a href="#">Kebijakan Privasi</a></p>
+        </div>
+    </div>
+</footer> 
+
+<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+<body/>

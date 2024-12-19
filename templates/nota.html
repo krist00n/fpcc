@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlayStation Rental</title>
+    <link rel="icon" href="/static/icon/pac.png" type="gilang/jpg">
+    <link rel="stylesheet" href="/static/css/nota.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <div class="nota-container">
+        <div class="nota-header">
+            <h1><i class="fas fa-receipt"></i> Nota Pembayaran</h1>
+        </div>
+        <div class="nota-details">
+            <h3>Detail Transaksi:</h3>
+            <p><strong>Tanggal Sewa:</strong> {{ rental_date }}</p>
+            <p><strong>Tanggal Kembali:</strong> {{ return_date }}</p>
+            <p><strong>Device:</strong> {{ device_name }}</p>
+            <p><strong>Total Harga:</strong> {{ total_amount }}</p>
+            <p><strong>Nama Member:</strong> {{ member_name }}</p>
+        </div>
+        <div class="nota-footer">
+            <p>Terima kasih atas transaksi Anda.</p>
+        </div>
+    </div>
+    <div class="nota-buttons">
+        <a href="{{ url_for('home') }}" class="btn-back"><i class="fas fa-arrow-left"></i> Kembali ke Home</a>
+        <button id="download-btn" class="btn-download"><i class="fas fa-download"></i> Unduh Nota</button>
+    </div>
+
+    <script>
+        document.getElementById('download-btn').addEventListener('click', function() {
+            const notaContainer = document.querySelector('.nota-container');
+            
+            // Menggunakan html2canvas untuk menangkap elemen HTML
+            html2canvas(notaContainer).then(canvas => {
+                // Konversi canvas menjadi URL gambar
+                const link = document.createElement('a');
+                link.href = canvas.toDataURL('image/png');
+                link.download = 'nota-pembayaran.png';
+                
+                // Simulasikan klik untuk mengunduh gambar
+                link.click();
+            });
+        });
+    </script>
+</body>
+</html>

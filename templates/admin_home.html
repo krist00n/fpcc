@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="icon" href="/static/icon/pac.png" type="gilang/jpg">
+    <link rel="stylesheet" href="/static/css/admin.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Admin Dashboard</h1>
+            <nav>
+                <ul>
+                    <li><a href="#dashboard">Dashboard</a></li>
+                    <li><a href="#users">Users</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#orders">Orders</a></li>
+                    <li><a href="/logout" id="logout-btn">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="dashboard">
+            <h2>Dashboard</h2>
+            <div class="dashboard-cards">
+                <div class="card">
+                    <h3>Total Users</h3>
+                    <p>{{ total_users }}</p>
+                    <a href="{{ url_for('download_users_csv') }}" class="download-btn">Download Users CSV</a>
+                </div>
+                <div class="card">
+                    <h3>Total Products</h3>
+                    <p>{{ total_products }}</p>
+                    <a href="{{ url_for('download_products_csv') }}" class="download-btn">Download Products CSV</a>
+                </div>
+                <div class="card">
+                    <h3>Total Orders</h3>
+                    <p>{{ total_orders }}</p>
+                    <a href="{{ url_for('download_orders_csv') }}" class="download-btn">Download Orders CSV</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="users">
+            <h2>Users</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Username</th>
+                        <th>Nama</th>
+                        <th>No HP</th>
+                        <th>Alamat</th>
+                        <th>Role</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in users %}
+                    <tr>
+                        <td>{{ user.id }}</td>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.nama }}</td>
+                        <td>{{ user.no_hp }}</td>
+                        <td>{{ user.alamat }}</td>
+                        <td>{{ user.role }}</td>
+                        <td>
+                            <form action="/admin/delete_user/{{ user.id }}" method="POST">
+                                <button type="submit" class="delete-btn">Delete</button>
+                            </form>
+                            <form action="/admin/edit_user/{{ user.id }}">
+                                <button type="submit" class="edit-button">Edit</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+
+        <section id="products">
+            <h2>Products</h2>
+            <div class="product-list">
+                {% for product in products %}
+                <div class="product">
+                    <h3>{{ product.device }}</h3>
+                    <p>Harga: {{ product.harga }}</p>
+                    <form action="/admin/delete_product/{{ product.id_device }}" method="POST">
+                        <button type="submit" class="delete-btn">Delete</button>
+                    </form>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section id="orders">
+            <h2>Orders</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Member</th>
+                        <th>No HP</th>
+                        <th>Device</th>
+                        <th>Tanggal Kembali</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order in orders %}
+                    <tr>
+                        <td>{{ order.id_sewa }}</td>
+                        <td>{{ order.username }}</td>
+                        <td>{{ order.no_hp }}</td>
+                        <td>{{ order.device }}</td>
+                        <td>{{ order.tanggal_kembali }}</td>
+                        <td>
+                            <form action="/admin/delete_order/{{ order.id_sewa }}" method="POST">
+                                <button type="submit" class="delete-btn">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+        
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Admin Panel. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

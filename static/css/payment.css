@@ -1,0 +1,116 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.payment-container {
+    max-width: 400px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.payment-container h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.payment-container h1 i {
+    color: #FFD700;
+    margin-right: 10px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+    width: 100%;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+    color: #555;
+}
+
+select {
+    width: calc(100% - 20px);
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+    background-color: #fff;
+}
+
+select:focus {
+    outline: none;
+    border-color: #FFD700;
+    box-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+}
+
+
+input[type="text"],
+input[type="date"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus {
+    outline: none;
+    border-color: #FFD700;
+    box-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+}
+
+button {
+    background-color: #FFD700;
+    color: #333;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button i {
+    margin-right: 10px;
+}
+
+button:hover {
+    background-color: #F0C419;
+}

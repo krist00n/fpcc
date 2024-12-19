@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlayStation Rental</title>
+    <link rel="icon" href="/static/icon/pac.png" type="gilang/jpg">
+    <link rel="stylesheet" href="/static/css/regis.css">
+    <!-- Font Awesome untuk ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="register-container">
+        <img src="/static/img/logreg.jpeg" alt="Registrasi Image">
+        <h1>Registrasi Member Baru</h1>
+        <form action="/register" method="POST">
+            <div class="form-group">
+                <label for="nama">Nama</label>
+                <input type="text" id="nama" name="nama" placeholder="Masukkan nama Anda" required>
+            </div>
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Masukkan username Anda" required>
+            </div>
+            <div class="form-group">
+                <label for="no_hp">No HP</label>
+                <input type="text" id="no_hp" name="no_hp" placeholder="Masukkan nomor HP Anda" required>
+            </div>
+            <div class="form-group">
+                <label for="alamat">Alamat</label>
+                <input type="text" id="alamat" name="alamat" placeholder="Masukkan alamat Anda" required></input>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Masukkan password Anda" required>
+            </div>
+            <div class="form-group">
+                <label for="confirm-password">Konfirmasi Password</label>
+                <input type="password" id="confirm-password" name="confirm-password" placeholder="Konfirmasi password Anda" required>
+            </div>
+            <button type="submit">Registrasi</button>
+        </form>
+        <p>Sudah punya Member? <a href="{{url_for('login')}}">Masuk</a></p>
+    </div>
+</body>
+</html>

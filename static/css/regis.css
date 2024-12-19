@@ -1,0 +1,130 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.register-container {
+    max-width: 400px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.register-container img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    object-fit: cover;
+}
+
+.register-container h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+    width: 100%;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    border-color: #FFD700;
+}
+
+button {
+    background-color: #FFD700;
+    color: #333;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #F0C419;
+}
+
+p {
+    margin-top: 10px;
+    color: #666;
+}
+
+a {
+    color: #FFD700;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #F0C419;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .register-container {
+        width: 90%;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .register-container {
+        padding: 15px;
+    }
+
+    .register-container img {
+        margin-bottom: 15px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    button {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
